@@ -1,0 +1,4 @@
+.RadioCardContainer {
+    display: flex;
+    flex-direction: column;
+}

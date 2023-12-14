@@ -1,0 +1,59 @@
+.InputText {
+  /* SIZING & SPACING STYLES */
+  margin-bottom: 15px;
+
+  & input {
+     /* DISPLAY STYLES */
+    box-sizing: border-box;
+
+    /* SIZING & SPACING STYLES */
+    min-height: 40px;
+    width: 100%;
+    max-width: 375px;
+    padding: 0px 15px;
+
+    /* APPEARANCE STYLES */
+    color: var(--darkGray);
+    background-color: white;
+    border-radius: 3px;
+    border: 1px solid var(--lightGray);
+
+    /* FONT STYLES */
+    font-size: 14px;
+    font-weight: 700;
+
+    /* MISC STYLES */
+    cursor: pointer;
+
+    /* TRANSITION STYLES */
+    transition: border 0.25s, background 0.25s;
+  }
+
+  & input[aria-invalid="true"] {
+    border: 1px solid var(--strawberryRed);
+  }
+}
+
+.LabelContainer {
+  /* DISPLAY STYLES */
+  display: flex;
+  justify-content: space-between;
+
+  /* SIZING & SPACING STYLES */
+  max-width: 375px;
+  margin-bottom: 3px;
+
+  /* FONT STYLES */
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--marineBlue);
+
+  & p {
+    margin: 0px;
+    padding: 0px;
+
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--strawberryRed);
+  }
+}

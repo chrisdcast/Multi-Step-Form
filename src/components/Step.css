@@ -1,0 +1,30 @@
+.StepDot {
+    /* DISPLAY STYLES */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* SIZING & SPACING STYLES */
+    width: 30px;
+    height: 30px;
+    margin: 0px 7px;
+
+    /* APPEARANCE STYLES */
+    border: 1px solid var(--lightBlue);
+    border-radius: 20px;
+
+    /* FONT STYLES */
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.StepDot[data-current-step = true]{
+    /* APPEARANCE STYLES */
+    background-color: var(--lightBlue);
+    color: var(--marineBlue);
+}
+
+.StepLabel {
+    /* DISPLAY STYLES */
+    display: none;
+}

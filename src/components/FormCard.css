@@ -1,0 +1,27 @@
+.FormCard {
+    /* DISPLAY STYLES */
+    display: flex;
+    flex-direction: column;
+
+    /* SIZING & SPACING STYLES */
+    margin: 0px;
+    min-height: 200px;
+    height: 100vh;
+    padding: 0px;
+
+    /* APPEARANCE STYLES */
+    background-color: transparent;
+    background-image: url('../assets/bg-sidebar-mobile.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 0px;
+    border: 1px solid red;
+}
+
+.FormContainer {
+    /* DISPLAY STYLES */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}

@@ -1,0 +1,53 @@
+.FormButtonContainer {
+    /* DISPLAY STYLES */
+    display: flex;
+    justify-content: space-between;
+
+    /* SIZING & SPACING STYLES */
+    padding: 15px;
+
+    /* APPEARANCE STYLES */
+    background-color: white;
+
+    & .PrevStep {
+        /* SIZING & SPACING STYLES */
+        max-width: 100px;
+        min-height: 40px;
+
+        /* APPEARANCE STYLES */
+        background: none;
+
+        & input {
+            /* APPEARANCE STYLES */
+            background: none;
+
+            /* FONT STYLES */
+            font-size: 14px;
+            color: gray;
+        }
+    }
+
+    & .NextStep {
+        /* SIZING & SPACING STYLES */
+        max-width: 100px;
+        min-height: 40px;
+
+        /* APPEARANCE STYLES */
+        background: var(--marineBlue);
+        border-radius: 5px;
+
+        & input {
+            /* APPEARANCE STYLES */
+            background: var(--marineBlue);
+
+            /* FONT STYLES */
+            font-size: 14px;
+        }
+
+        & input:hover,
+        button:hover,
+        .Link:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+    }
+}

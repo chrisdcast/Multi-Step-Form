@@ -1,0 +1,68 @@
+.Button {
+  /* DISPLAY STYLES */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  /* SIZING & SPACING STYLES */
+  min-height: 55px;
+  max-width: 250px;
+  width: 100%;
+  height: 100%;  
+
+  /* APPEARANCE STYLES */
+  background: tomato;
+  border-radius: 7px;
+
+  /* ANIMATION STYLES */
+  transition: filter 0.25s;
+
+  & input,
+  button {
+    /* DISPLAY STYLES */
+    flex-grow: 1;
+
+    /* SIZING & SPACING STYLES */
+    width: 100%;
+
+     /* APPEARANCE STYLES */
+    color: white;
+    border: none;
+
+    /* FONT STYLES */
+    font-size: 16px;
+    font-weight: 700;
+
+    /* ANIMATION STYLES */
+    transition: background 0.25s;
+  }
+
+  & .Link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+    color: white;
+    border: none;
+
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: background 0.25s;
+  }
+
+  & input:hover,
+  button:hover,
+  .Link:hover {
+    cursor: pointer;
+  }
+
+  & input[data-display=false],
+  button[data-display=false] {
+    visibility: hidden;
+  }
+}
