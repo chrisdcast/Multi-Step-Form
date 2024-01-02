@@ -1,0 +1,85 @@
+.CheckboxCard {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    min-height: 70px;
+    padding: 0px 15px;
+
+    font-size: 14px;
+
+    border-radius: 5px;
+    border: 1.5px solid var(--magnolia);
+
+    transition: border .15s;
+
+    & label {
+        position: absolute;
+
+        width: 100%;
+        height: 100%;
+        left: -2px;
+
+        cursor: pointer;
+
+        /* border: 1px solid red; */
+    }
+
+    & input {
+        appearance: none;
+    }
+
+    & .CheckboxMark {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 12px;
+        height: 12px;
+
+        border-radius: 3px;
+        border: 2px solid var(--magnolia);
+
+        transition:
+            border .15s,
+            background-color .15s;
+    }
+
+    & .CheckboxLabelContainer {
+        flex-grow: 1;
+
+        margin: 0px 20px;
+
+        & h1 {
+            margin-bottom: 2px;
+
+            font-size: 1em;
+        }
+
+        & p {
+            margin: 0px;
+
+            font-size: .75em;
+        }
+    }
+}
+
+.CheckboxCard:hover {
+    border: 1.5px solid var(--purplishBlue);
+}
+
+.CheckboxCard[data-checked='true'] {
+
+    border: 1.5px solid var(--purplishBlue);
+
+    & .CheckboxMark {
+        border: 2px solid var(--purplishBlue);
+        background-color: var(--purplishBlue);
+
+        & img {
+            content: url('/src/assets/icon-checkmark.svg');
+
+            user-select: none;
+        }
+    }
+}

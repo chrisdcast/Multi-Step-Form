@@ -4,9 +4,10 @@ import { ActiveAddOns } from "../interfaces/AddOnInterface"
 export default function FormBodyAddOns() {
     const activeAddOns = ActiveAddOns;
     const checkboxCardParams: ICheckboxCard = {
-        name: activeAddOns[0].name,
+        name: 'addOns',
         label: activeAddOns[0].name,
         value: activeAddOns[0].id,
+        description: activeAddOns[0].description
     }
 
     return (
