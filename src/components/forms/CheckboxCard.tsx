@@ -38,7 +38,7 @@ export function CheckboxCard({ params }: { params: ICheckboxCard }) {
     // selected checkbox.  
     /////////////////////////////////////////////////////////////////////////////
     const handleCheckbox = () => {
-        const checkbox = document.getElementById(`${name} Checkbox`);
+        const checkbox = document.getElementById(`${label} Checkbox`);
         if (!checkbox) {
             console.log('CheckboxCard:handleCheckbox:checkbox not found');
             return;
@@ -51,9 +51,9 @@ export function CheckboxCard({ params }: { params: ICheckboxCard }) {
     }
 
     useEffect(() => {
-        const checkbox = document.getElementById(`${name} Checkbox`);
+        const checkbox = document.getElementById(`${label} Checkbox`);
         if (!checkbox) {
-            console.log('CheckboxCard:handleCheckbox:checkbox not found');
+            console.log('CheckboxCard:useEffect:checkbox not found');
             return;
         }
         if (checked) {
@@ -65,13 +65,13 @@ export function CheckboxCard({ params }: { params: ICheckboxCard }) {
 
     return (
         <div
-            id={`${name} Checkbox`}
+            id={`${label} Checkbox`}
             className={classNames ? `CheckboxCard ${classNames.join('')}` : "CheckboxCard"}
             onMouseDown={handleCheckbox}>
-            <label htmlFor={name}></label>
+            <label htmlFor={`${label} ${name}`}></label>
             <input
                 type="checkbox"
-                id={name}
+                id={`${label} ${name}`}
                 {...register(name, registerParams)}
                 value={value} />
             <div className="CheckboxMark">
@@ -81,6 +81,7 @@ export function CheckboxCard({ params }: { params: ICheckboxCard }) {
                 <h1>{label}</h1>
                 <p>{description}</p>
             </div>
+            <p>{subscript}</p>
         </div>
     )
 }

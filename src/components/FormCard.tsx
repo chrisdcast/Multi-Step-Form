@@ -93,7 +93,7 @@ export function FormCard() {
 
                                         case 3:
                                             console.log('case 3 hit');
-                                            return <FormBodyAddOns />
+                                            return <FormBodyAddOns currentAddOns={formInfoState.addOns}/>
 
                                         case 4:
                                             console.log('case 4 hit');

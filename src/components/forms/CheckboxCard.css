@@ -5,11 +5,14 @@
 
     min-height: 70px;
     padding: 0px 15px;
+    margin-bottom: 10px;
 
     font-size: 14px;
 
     border-radius: 5px;
     border: 1.5px solid var(--magnolia);
+
+    user-select: none;
 
     transition: border .15s;
 
@@ -26,7 +29,7 @@
     }
 
     & input {
-        appearance: none;
+        visibility: hidden;
     }
 
     & .CheckboxMark {
@@ -61,6 +64,13 @@
 
             font-size: .75em;
         }
+    }
+
+    & p {
+        margin: 0px;
+        
+        font-size: .9em;
+        color: var(--purplishBlue);
     }
 }
 
