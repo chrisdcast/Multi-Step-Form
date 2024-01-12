@@ -1,5 +1,5 @@
 import { CheckboxCard } from "./forms/CheckboxCard"
-import { ActiveAddOns } from "../interfaces/AddOnInterface"
+import { ActiveAddOns, FakeAddOnAPI } from "../interfaces/AddOnInterface"
 import { AnnualContext } from "./FormCard";
 import { useContext } from "react";
 
@@ -18,7 +18,7 @@ export default function FormBodyAddOns({ currentAddOns }: { currentAddOns?: stri
                         label: el.name,
                         value: el.id,
                         description: el.description,
-                        subscript: annual ? `+$${el.price * 10}/yr` : `+$${el.price}/mo`,
+                        subscript: annual ? `+$${FakeAddOnAPI.getPriceAnnual(el.id)}/yr` : `+$${FakeAddOnAPI.getPriceMonthly(el.id)}/mo`,
                         checked: currentAddOns?.includes(el.id) ? true : false
                     }} key={`CheckboxCard ${i}`} />
                 ))}

@@ -5,7 +5,6 @@ export interface PlanType {
     readonly id: string;
     readonly name: string;
     readonly pricePerMo: number;
-    pricePerYear(perMo: number): number;
 };
 
 export const ActivePlanTypes: PlanType[] = [
@@ -13,18 +12,44 @@ export const ActivePlanTypes: PlanType[] = [
         id: 'PL001',
         name: 'Arcade',
         pricePerMo: 9,
-        pricePerYear: getPricePerYear
     },
     {
         id: 'PL002',
         name: 'Advanced',
         pricePerMo: 12,
-        pricePerYear: getPricePerYear
     },
     {
         id: 'PL003',
         name: 'Pro',
         pricePerMo: 15,
-        pricePerYear: getPricePerYear
     }
 ];
+
+const getPlan = (id: string) => {
+    const plan = ActivePlanTypes.filter((pl) => pl.id !== id);
+    return plan[0];
+}
+
+const getPriceMonthly = (id: string) => {
+    const plan = getPlan(id);
+    if (!plan) {
+        console.log('fakePlanAPI:getPriceMonthly:Plan not found');
+        return;
+    }
+    return plan.pricePerMo;
+}
+
+const getPriceAnnual = (id: string) => {
+    const plan = getPlan(id);
+    if (!plan) {
+        console.log('fakePlanAPI:getPriceAnnual:Plan not found');
+        return;
+    }
+    return plan.pricePerMo * 10;
+}
+
+export const FakePlanAPI = {
+    getPlan,
+    getPriceMonthly,
+    getPriceAnnual
+}

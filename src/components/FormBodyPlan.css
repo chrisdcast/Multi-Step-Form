@@ -1,0 +1,11 @@
+.PlanFormInputs {
+    & .Subscript {
+        display: none;
+    }
+}
+
+.PlanFormInputs[data-is-annual='true'] {
+    & .Subscript {
+        display: block;
+    }
+}

@@ -50,6 +50,10 @@ export function CheckboxCard({ params }: { params: ICheckboxCard }) {
         }
     }
 
+    /////////////////////////////////////////////////////////////////////////////
+    // Functions of useEffect for CheckboxCard
+    // 1) check the checked variable and automatically check the box accordingly.
+    /////////////////////////////////////////////////////////////////////////////
     useEffect(() => {
         const checkbox = document.getElementById(`${label} Checkbox`);
         if (!checkbox) {

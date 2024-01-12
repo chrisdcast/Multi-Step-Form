@@ -9,19 +9,25 @@ export interface IRadioButtonCardParams {
     label: string;
     value: string;
     checked?: boolean;
+    registerParams?: {
+        required?: boolean;
+        disabled?: boolean;
+        onChange?(): void;
+    };
     imgUrl?: string;
     description?: string;
     subscript?: string;
 }
 
 export function RadioButtonCard({ params, name, containerId }: { params: IRadioButtonCardParams, name: string, containerId: string }) {
-    const { 
-        id, 
-        label, 
-        value, 
-        checked, 
-        imgUrl, 
-        description, 
+    const {
+        id,
+        label,
+        value,
+        checked,
+        registerParams,
+        imgUrl,
+        description,
         subscript } = params;
     const { register } = useFormContext();
 
@@ -34,7 +40,7 @@ export function RadioButtonCard({ params, name, containerId }: { params: IRadioB
         const cards = document.getElementsByClassName(containerId);
         if (!button || !cards) {
             if (!button) console.log('RadioButtonCard:handleRadio:button not found');
-            if (!cards) console.log('RadioButtonCard:handleRadio:cards not found');     
+            if (!cards) console.log('RadioButtonCard:handleRadio:cards not found');
             return;
         }
         // This loop is to run through the cards in the current RadioCardContainer
@@ -56,7 +62,6 @@ export function RadioButtonCard({ params, name, containerId }: { params: IRadioB
     // 1) check the checked variable and automatically select the button accordingly.
     /////////////////////////////////////////////////////////////////////////////
     useEffect(() => {
-        console.log('useEffect for card ', id);
         const button = document.getElementById(id);
         if (!button) {
             console.log('RadioButtonCard:useEffect:button not found');
@@ -76,7 +81,7 @@ export function RadioButtonCard({ params, name, containerId }: { params: IRadioB
                 type="radio"
                 id={id}
                 value={value}
-                {...register(name, { required: true })}
+                {...register(name, registerParams)}
             />
             {imgUrl &&
                 <div className="RadioCardImgContainer">

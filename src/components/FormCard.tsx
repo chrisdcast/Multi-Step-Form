@@ -1,5 +1,5 @@
 import { useState, createContext } from "react";
-import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
+import { useForm, FormProvider, SubmitHandler, set } from "react-hook-form";
 import { IRegisterFormInfo } from "../interfaces/FormInterfaces";
 import { IStepParams } from "./Step";
 import StepContainer from "./StepContainer";
@@ -58,6 +58,13 @@ export function FormCard() {
         //nextBtn = false;
         if (stepState > 1) setStepState(stepState - 1);
     }
+    // onChange event handler for plan radio card buttons.
+    const radioPlanChange = (value: string) => {
+        console.log('radio card changed', value);
+        if (!value) return;
+        setFormInfo({ ...formInfoState, plan: value });
+        // setFormInfo({ ...formInfoState, plan: value });
+    }
     // onChange event for toggle to rerender the screen.
     const toggleChange = () => {
         if (formInfoState.annual === 'true') {
@@ -87,13 +94,14 @@ export function FormCard() {
                                         case 2:
                                             console.log('case 2 hit');
                                             return <FormBodyPlan
+                                                planChange={radioPlanChange}
                                                 toggleChange={toggleChange}
                                                 planType={formInfoState.plan}
                                             />
 
                                         case 3:
                                             console.log('case 3 hit');
-                                            return <FormBodyAddOns currentAddOns={formInfoState.addOns}/>
+                                            return <FormBodyAddOns currentAddOns={formInfoState.addOns} />
 
                                         case 4:
                                             console.log('case 4 hit');
