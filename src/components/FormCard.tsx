@@ -6,6 +6,7 @@ import StepContainer from "./StepContainer";
 import FormBodyPersonal from './FormBodyPersonal';
 import FormBodyPlan from './FormBodyPlan';
 import FormBodyAddOns from "./FormBodyAddOns";
+import { FormBodyReview } from "./FormBodyReview";
 import FormButtonContainer from "./FormButtonContainer";
 import "./Card.css";
 import "./FormCard.css";
@@ -33,7 +34,7 @@ const stepLiterals: IStepParams[] = [
 
 export function FormCard() {
     // Methods for FormProvider
-    const methods = useForm<IRegisterFormInfo>({ defaultValues: { plan: 'ARC' } });
+    const methods = useForm<IRegisterFormInfo>({ defaultValues: { plan: 'ARC', addOns: [''] } });
     // Intializing step counter for rendering different forms.
     const [stepState, setStepState] = useState<number>(1);
     // Form data object
@@ -58,20 +59,8 @@ export function FormCard() {
         //nextBtn = false;
         if (stepState > 1) setStepState(stepState - 1);
     }
-    // onChange event handler for plan radio card buttons.
-    const radioPlanChange = (value: string) => {
-        console.log('radio card changed', value);
-        if (!value) return;
-        setFormInfo({ ...formInfoState, plan: value });
-        // setFormInfo({ ...formInfoState, plan: value });
-    }
-    // onChange event for toggle to rerender the screen.
-    const toggleChange = () => {
-        if (formInfoState.annual === 'true') {
-            setFormInfo({ ...formInfoState, annual: '' })
-        } else {
-            setFormInfo({ ...formInfoState, annual: 'true' })
-        }
+    const handleReviewPlanChange = () => {
+        setStepState(2);
     }
 
     console.log(formInfoState);
@@ -94,18 +83,21 @@ export function FormCard() {
                                         case 2:
                                             console.log('case 2 hit');
                                             return <FormBodyPlan
-                                                planChange={radioPlanChange}
-                                                toggleChange={toggleChange}
                                                 planType={formInfoState.plan}
                                             />
 
                                         case 3:
                                             console.log('case 3 hit');
-                                            return <FormBodyAddOns currentAddOns={formInfoState.addOns} />
+                                            return <FormBodyAddOns
+                                                currentAddOns={formInfoState.addOns}
+                                            />
 
                                         case 4:
                                             console.log('case 4 hit');
-                                            return <p>4th form</p>
+                                            return <FormBodyReview
+                                                plan={formInfoState.plan}
+                                                onPlanChange={handleReviewPlanChange}
+                                            />
 
                                         default:
                                             console.log('This was hit somehow');

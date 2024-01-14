@@ -1,6 +1,6 @@
 import { RadioCardContainer, IRadioButtonCardContainerParams } from "./forms/RadioCardContainer"
 import { Toggle, IToggleParams } from "./forms/Toggle";
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { AnnualContext } from "./FormCard"
 import { FakePlanAPI } from "../interfaces/PlanInterfaces";
 import './FormBodyPlan.css';
@@ -8,7 +8,7 @@ import './FormBodyPlan.css';
 const DATA_ANNUAL_LIT = 'data-is-annual';
 const SUBSCRPT_2_MTH_FREE = '2 months free';
 
-export default function FormBodyPlan({ planChange, toggleChange, planType }: { planChange(value: string): void, toggleChange(): void, planType: string }) {
+export default function FormBodyPlan({ planType }: { planType: string }) {
     const fakeAPI = FakePlanAPI;
     const annualContext = useContext(AnnualContext);
     const radioButtonContainerParams: IRadioButtonCardContainerParams = {
@@ -17,8 +17,8 @@ export default function FormBodyPlan({ planChange, toggleChange, planType }: { p
             {
                 id: 'Arcade',
                 label: 'Arcade',
-                value: 'ARC',
-                checked: planType === 'ARC' || planType === null ? true : false,
+                value: 'PL001',
+                checked: planType === 'PL001' || planType === null ? true : false,
                 registerParams: {
                     required: true,
                 },
@@ -29,8 +29,8 @@ export default function FormBodyPlan({ planChange, toggleChange, planType }: { p
             {
                 id: 'Advanced',
                 label: 'Advanced',
-                value: 'ADV',
-                checked: planType === 'ADV' ? true : false,
+                value: 'PL002',
+                checked: planType === 'PL002' ? true : false,
                 registerParams: {
                     required: true,
                 },
@@ -41,8 +41,8 @@ export default function FormBodyPlan({ planChange, toggleChange, planType }: { p
             {
                 id: 'Pro',
                 label: 'Pro',
-                value: 'PRO',
-                checked: planType === 'PRO' ? true : false,
+                value: 'PL003',
+                checked: planType === 'PL003' ? true : false,
                 registerParams: {
                     required: true,
                 },
@@ -74,13 +74,13 @@ export default function FormBodyPlan({ planChange, toggleChange, planType }: { p
         }
         if (form.getAttribute(DATA_ANNUAL_LIT) === 'false') {
             form.setAttribute(DATA_ANNUAL_LIT, 'true');
-            for (let label in labels) {
-                labels[label].textContent = `$${fakeAPI.getPriceAnnual(radioButtonContainerParams.cards[label].id)}/yr`
+            for (let i = 0; i < radioButtonContainerParams.cards.length; i++) {
+                labels[i].textContent = `$${fakeAPI.getPriceAnnual(radioButtonContainerParams.cards[i].id)}/yr`;
             }
         } else {
             form.setAttribute(DATA_ANNUAL_LIT, 'false');
-            for (let label in labels) {
-                labels[label].textContent = `$${fakeAPI.getPriceMonthly(radioButtonContainerParams.cards[label].id)}/mo`
+            for (let i = 0; i < radioButtonContainerParams.cards.length; i++) {
+                labels[i].textContent = `$${fakeAPI.getPriceMonthly(radioButtonContainerParams.cards[i].id)}/mo`;
             }
         }
     }

@@ -18,6 +18,8 @@ input {
 
     user-select: none;
 
+    transition: border .15s;
+
     & label {
         appearance: none;
         position: absolute;
@@ -65,5 +67,7 @@ input {
 }
 
 .RadioButtonCard[data-checked="true"] {
+    background: var(--magnolia);
+
     border: 1px solid var(--purplishBlue);
 }

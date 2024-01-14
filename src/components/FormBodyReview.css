@@ -1,0 +1,13 @@
+.ReviewListBlock {
+    padding: 15px;
+
+    background-color: var(--magnolia);
+
+    border-radius: 10px;
+
+    & .ReviewListPlanSection {
+        padding-bottom: 10px;
+
+        border-bottom: 1px solid var(--lightGray);
+    }
+}

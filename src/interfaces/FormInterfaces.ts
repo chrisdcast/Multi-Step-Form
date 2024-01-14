@@ -4,5 +4,5 @@ export interface IRegisterFormInfo {
     phone: string,
     plan: string,
     annual: string,
-    addOns?: string[] 
+    addOns: string[] 
 }

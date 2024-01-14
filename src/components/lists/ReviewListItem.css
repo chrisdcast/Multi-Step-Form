@@ -1,0 +1,32 @@
+.ReviewListItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    min-height: 50px;
+
+    & .LabelContainer {
+        display: flex;
+        flex-direction: column;
+
+        & h3 {
+            margin: 0px;
+        }
+
+        & a, p {
+            text-decoration: underline;
+            color: var(--coolGray);
+        }
+    }
+
+    & .ValueContainer {
+
+        & p {
+            margin: 0px;
+
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--marineBlue);
+        }
+    }
+}

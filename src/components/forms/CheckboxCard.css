@@ -80,6 +80,8 @@
 
 .CheckboxCard[data-checked='true'] {
 
+    background: var(--magnolia);
+
     border: 1.5px solid var(--purplishBlue);
 
     & .CheckboxMark {
