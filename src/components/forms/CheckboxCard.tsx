@@ -71,21 +71,25 @@ export function CheckboxCard({ params }: { params: ICheckboxCard }) {
         <div
             id={`${label} Checkbox`}
             className={classNames ? `CheckboxCard ${classNames.join('')}` : "CheckboxCard"}
-            onMouseDown={handleCheckbox}>
+        >
             <label htmlFor={`${label} ${name}`}></label>
             <input
                 type="checkbox"
                 id={`${label} ${name}`}
                 {...register(name, registerParams)}
-                value={value} />
-            <div className="CheckboxMark">
-                <img />
+                value={value}
+                onClick={handleCheckbox}
+            />
+            <div className="CheckboxContent">
+                <div className="CheckboxMark">
+                    <img />
+                </div>
+                <div className="CheckboxLabelContainer">
+                    <h3>{label}</h3>
+                    <p className="Description">{description}</p>
+                </div>
+                <p className="Subscript">{subscript}</p>
             </div>
-            <div className="CheckboxLabelContainer">
-                <h1>{label}</h1>
-                <p>{description}</p>
-            </div>
-            <p>{subscript}</p>
         </div>
     )
 }

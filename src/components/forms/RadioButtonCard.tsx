@@ -83,21 +83,23 @@ export function RadioButtonCard({ params, name, containerId }: { params: IRadioB
                 value={value}
                 {...register(name, registerParams)}
             />
-            {imgUrl &&
-                <div className="RadioCardImgContainer">
-                    <img
-                        alt={`${label} Image`}
-                        style={{
-                            content: 'url(' + imgUrl + ')',
-                            objectFit: 'contain',
-                            backgroundRepeat: 'no-repeat'
-                        }} />
+            <div className="RadioCardContentContainer">
+                {imgUrl &&
+                    <div className="RadioCardImgContainer">
+                        <img
+                            alt={`${label} Image`}
+                            style={{
+                                content: 'url(' + imgUrl + ')',
+                                objectFit: 'contain',
+                                backgroundRepeat: 'no-repeat'
+                            }} />
+                    </div>
+                }
+                <div className="RadioCardTextContainer">
+                    <h1>{label}</h1>
+                    {description && <p className="Description">{description}</p>}
+                    {subscript && <p className="Subscript">{subscript}</p>}
                 </div>
-            }
-            <div className="RadioCardTextContainer">
-                <h1>{label}</h1>
-                {description && <p className="Description">{description}</p>}
-                {subscript && <p className="Subscript">{subscript}</p>}
             </div>
         </div>
     )

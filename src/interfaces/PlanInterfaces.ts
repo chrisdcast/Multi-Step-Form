@@ -26,24 +26,24 @@ export const ActivePlanTypes: PlanType[] = [
 ];
 
 const getPlan = (id: string) => {
-    const plan = ActivePlanTypes.filter((pl) => pl.id !== id);
+    const plan = ActivePlanTypes.filter((pl) => pl.id === id);
     return plan[0];
 }
 
-const getPriceMonthly = (id: string) => {
+const getPriceMonthly = (id: string): number => {
     const plan = getPlan(id);
     if (!plan) {
         console.log('fakePlanAPI:getPriceMonthly:Plan not found');
-        return;
+        return 0;
     }
     return plan.pricePerMo;
 }
 
-const getPriceAnnual = (id: string) => {
+const getPriceAnnual = (id: string): number => {
     const plan = getPlan(id);
     if (!plan) {
         console.log('fakePlanAPI:getPriceAnnual:Plan not found');
-        return;
+        return 0;
     }
     return plan.pricePerMo * 10;
 }

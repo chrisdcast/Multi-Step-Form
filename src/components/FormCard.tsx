@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 import { useForm, FormProvider, SubmitHandler, set } from "react-hook-form";
 import { IRegisterFormInfo } from "../interfaces/FormInterfaces";
 import { IStepParams } from "./Step";
@@ -34,7 +34,7 @@ const stepLiterals: IStepParams[] = [
 
 export function FormCard() {
     // Methods for FormProvider
-    const methods = useForm<IRegisterFormInfo>({ defaultValues: { plan: 'ARC', addOns: [''] } });
+    const methods = useForm<IRegisterFormInfo>({ defaultValues: { plan: 'PL001', addOns: [''] } });
     // Intializing step counter for rendering different forms.
     const [stepState, setStepState] = useState<number>(1);
     // Form data object
@@ -46,24 +46,44 @@ export function FormCard() {
         annual: '',
         addOns: []
     });
+
     // Submit handler for form
     const formSubmit: SubmitHandler<IRegisterFormInfo> = (data, e) => {
         e?.preventDefault();
-        console.log('submit handler hit');
         setFormInfo({ ...formInfoState, ...data });
         setStepState(stepState + 1);
+        // const form = document.getElementById('FormContainer');
+        // console.log(form);
+        // if (form) {
+        //     form.focus();
+        // }
     }
+
     // Handler for Go Back button
     const handlePrev = () => {
-        console.log('prev step handler hit');
-        //nextBtn = false;
         if (stepState > 1) setStepState(stepState - 1);
     }
+
+    // Handler for plan change link on review screen.
     const handleReviewPlanChange = () => {
         setStepState(2);
     }
 
-    console.log(formInfoState);
+    useEffect(() => {
+        console.log(formInfoState);
+        //Getting the form and first available input for refocusing the tab index.
+        const form = document.getElementById('FormContainer');
+        if (!form) {
+            console.log('FormCard:useEffect:form not found');
+            return;
+        }
+        const nextInput = form.getElementsByTagName('input');
+        if (!nextInput) {
+            console.log('FormCard:useEffect:nextInput not found')
+            return;
+        }
+        nextInput[0].focus();
+    })
 
     return (
         <div className="Card FormCard">
@@ -71,34 +91,31 @@ export function FormCard() {
                 <StepContainer stepInfo={stepLiterals} />
                 <AnnualContext.Provider value={formInfoState.annual}>
                     <FormProvider {...methods}>
-                        <form className="FormContainer" onSubmit={methods.handleSubmit(formSubmit)}>
+                        <form
+                            id="FormContainer"
+                            className="FormContainer"
+                            onSubmit={methods.handleSubmit(formSubmit)}
+                        >
                             {
                                 (() => {
                                     console.log('switch statement started', stepState);
                                     switch (stepState) {
                                         case 1:
-                                            console.log('case 1 hit');
                                             return <FormBodyPersonal />
-
                                         case 2:
-                                            console.log('case 2 hit');
                                             return <FormBodyPlan
                                                 planType={formInfoState.plan}
                                             />
-
                                         case 3:
-                                            console.log('case 3 hit');
                                             return <FormBodyAddOns
                                                 currentAddOns={formInfoState.addOns}
                                             />
-
                                         case 4:
-                                            console.log('case 4 hit');
                                             return <FormBodyReview
                                                 plan={formInfoState.plan}
+                                                addOns={formInfoState.addOns}
                                                 onPlanChange={handleReviewPlanChange}
                                             />
-
                                         default:
                                             console.log('This was hit somehow');
                                     }

@@ -1,5 +1,21 @@
 .FormBody {
     /* SIZING & SPACING STYLES */
+    box-sizing: border-box;
     padding: 35px 25px 20px 25px;
     margin: 0px 17px;
+    max-width: none;
+}
+
+@media (min-width: 575px) {
+    .FormBody{
+        margin: 0px;
+        padding: 35px 0px 20px 0px;
+    }
+}
+
+@media (min-width: 850px) {
+    .FormBody{
+        padding: 35px 0px 0px 0px;
+        min-width: 450px;
+    }
 }

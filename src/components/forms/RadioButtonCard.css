@@ -4,10 +4,7 @@ input {
 
 .RadioButtonCard {
     position: relative;
-    display: flex;
-    justify-content: start;
-
-    padding: 15px;
+    
     margin-bottom: 10px;
 
     color: var(--marineBlue);
@@ -22,43 +19,51 @@ input {
 
     & label {
         appearance: none;
+
+    }
+
+    & input {
+        appearance: none;
         position: absolute;
         width: 100%;
         height: 100%;
         cursor: pointer;
-    }
-
-    & input {
-        visibility: hidden;
         margin: 0px;
-    } 
+    }
 }
 
-.RadioCardImgContainer {
-    width: 40px;
-    height: 40px;
-    margin-right: 15px;
-}
-
-.RadioCardTextContainer {
+.RadioCardContentContainer {
     display: flex;
     justify-content: start;
-    flex-direction: column;
+
+    padding: 15px;
     
-    & h1 {
-        margin: 0px;
-        font-size: 1em;
+    .RadioCardImgContainer {
+        width: 40px;
+        height: 40px;
+        margin-right: 15px;
     }
 
-    .Description {
-        margin: 0px;
-        font-size: .85em;
-    }
+    .RadioCardTextContainer {
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
 
-    .Subscript {
-        margin: 0px;
-        font-size: .8em;
-        color: var(--marineBlue);
+        & h1 {
+            margin: 0px;
+            font-size: 1em;
+        }
+
+        .Description {
+            margin: 0px;
+            font-size: .85em;
+        }
+
+        .Subscript {
+            margin: 0px;
+            font-size: .8em;
+            color: var(--marineBlue);
+        }
     }
 }
 

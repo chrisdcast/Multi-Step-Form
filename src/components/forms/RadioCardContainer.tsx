@@ -17,7 +17,12 @@ export function RadioCardContainer({ params }: { params: IRadioButtonCardContain
         <div className={classNames ? `RadioCardContainer ${classNames?.join(' ')}` : 'RadioCardContainer'}>
             {
                 cards.map((card, i) => (
-                    <RadioButtonCard params={card} name={name} key={`${containerId}/${i}`} containerId={containerId} />
+                    <RadioButtonCard
+                        params={card}
+                        name={name}
+                        key={`${containerId}/${i}`}
+                        containerId={containerId}
+                    />
                 ))
             }
         </div>

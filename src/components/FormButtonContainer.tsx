@@ -23,8 +23,8 @@ export default function FormButtonContainer({ handlePrev }: { handlePrev(): void
 
     return (
         <div className='FormButtonContainer'>
-            <FormButton params={prevButtonParams} />
             <FormButton params={nextButtonParams} />
+            <FormButton params={prevButtonParams} />
         </div>
     )
 }

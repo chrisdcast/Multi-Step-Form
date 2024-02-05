@@ -1,5 +1,5 @@
-.ReviewListBlock {
-    padding: 15px;
+.ReviewListSection {
+    padding: 15px 20px;
 
     background-color: var(--magnolia);
 
@@ -7,7 +7,25 @@
 
     & .ReviewListPlanSection {
         padding-bottom: 10px;
+        margin-bottom: 15px;
 
         border-bottom: 1px solid var(--lightGray);
+    }
+}
+
+.TotalListItem {
+    padding: 0px 20px;
+
+    & h3{
+        color: var(--coolGray);
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    & .ValueContainer{
+        & p{
+            font-size: 16px;
+            color: var(--purplishBlue);
+        }
     }
 }

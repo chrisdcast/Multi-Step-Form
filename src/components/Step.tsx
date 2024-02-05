@@ -15,7 +15,7 @@ export default function Step({ stepNum, params }: { stepNum: number, params: ISt
         <div className="Step">
             <div className="StepDot" data-current-step={stepNum === step}>{stepNum}</div>
             <div className="StepLabel">
-                <h1>{label.toUpperCase()}</h1>
+                <h2>{label.toUpperCase()}</h2>
                 <p>{text.toUpperCase()}</p>
             </div>
         </div>

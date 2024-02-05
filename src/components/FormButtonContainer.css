@@ -2,9 +2,13 @@
     /* DISPLAY STYLES */
     display: flex;
     justify-content: space-between;
+    flex-direction: row-reverse;
 
     /* SIZING & SPACING STYLES */
+    box-sizing: border-box;
     padding: 15px;
+    width: 100%;
+    max-width: 450px;
 
     /* APPEARANCE STYLES */
     background-color: white;
@@ -49,5 +53,11 @@
         .Link:hover {
             background: rgba(255, 255, 255, 0.1);
         }
+    }
+}
+
+@media (min-width: 575px) {
+    .FormButtonContainer {
+        padding: 0px;
     }
 }

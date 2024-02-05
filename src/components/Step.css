@@ -1,30 +1,74 @@
-.StepDot {
+.Step {
     /* DISPLAY STYLES */
     display: flex;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
 
-    /* SIZING & SPACING STYLES */
-    width: 30px;
-    height: 30px;
-    margin: 0px 7px;
+    & .StepDot {
+        /* DISPLAY STYLES */
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-    /* APPEARANCE STYLES */
-    border: 1px solid var(--lightBlue);
-    border-radius: 20px;
+        /* SIZING & SPACING STYLES */
+        width: 30px;
+        height: 30px;
+        margin: 0px 7px;
 
-    /* FONT STYLES */
-    font-size: 16px;
-    font-weight: 500;
+        /* APPEARANCE STYLES */
+        border: 1px solid var(--lightBlue);
+        border-radius: 20px;
+
+        /* FONT STYLES */
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    & .StepDot[data-current-step=true] {
+        /* APPEARANCE STYLES */
+        background-color: var(--lightBlue);
+        color: var(--marineBlue);
+    }
+
+    & .StepLabel {
+        /* DISPLAY STYLES */
+        display: none;
+    }
 }
 
-.StepDot[data-current-step = true]{
-    /* APPEARANCE STYLES */
-    background-color: var(--lightBlue);
-    color: var(--marineBlue);
-}
+@media (min-width: 575px) {
+    .Step {
+        /* SIZING & SPACING STYLES */
+        margin-bottom: 25px;
 
-.StepLabel {
-    /* DISPLAY STYLES */
-    display: none;
+        & .StepDot {
+            /* SIZING & SPACING STYLES */
+            margin: 0px 15px 0px 0px;
+        }
+
+        & .StepLabel {
+            /* DISPLAY STYLES */
+            display: block;
+
+            & h2 {
+                /* SIZING & SPACING STYLES */
+                margin: 0px;
+
+                /* FONT STYLES */
+                font-size: 13px;
+                font-weight: 400;
+            }
+
+            & p {
+                /* SIZING & SPACING STYLES */
+                margin: 0px;
+
+                /* FONT STYLES */
+                font-size: 14px;
+                font-weight: 700;
+                font-kerning: none;
+                color: var(--alabaster);
+            }
+        }
+    }
 }

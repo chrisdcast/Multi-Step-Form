@@ -23,7 +23,7 @@ export default function FormBodyPlan({ planType }: { planType: string }) {
                     required: true,
                 },
                 imgUrl: '/src/assets/icon-arcade.svg',
-                description: annualContext === 'true' ? `$${fakeAPI.getPriceAnnual('Arcade')}/yr` : `$${fakeAPI.getPriceMonthly('Arcade')}/mo`,
+                description: annualContext === 'true' ? `$${fakeAPI.getPriceAnnual('PL001')}/yr` : `$${fakeAPI.getPriceMonthly('PL001')}/mo`,
                 subscript: SUBSCRPT_2_MTH_FREE
             },
             {
@@ -35,7 +35,7 @@ export default function FormBodyPlan({ planType }: { planType: string }) {
                     required: true,
                 },
                 imgUrl: '/src/assets/icon-advanced.svg',
-                description: annualContext === 'true' ? `$${fakeAPI.getPriceAnnual('Arcade')}/yr` : `$${fakeAPI.getPriceMonthly('Arcade')}/mo`,
+                description: annualContext === 'true' ? `$${fakeAPI.getPriceAnnual('PL002')}/yr` : `$${fakeAPI.getPriceMonthly('PL002')}/mo`,
                 subscript: SUBSCRPT_2_MTH_FREE
             },
             {
@@ -47,7 +47,7 @@ export default function FormBodyPlan({ planType }: { planType: string }) {
                     required: true,
                 },
                 imgUrl: '/src/assets/icon-pro.svg',
-                description: annualContext === 'true' ? `$${fakeAPI.getPriceAnnual('Arcade')}/yr` : `$${fakeAPI.getPriceMonthly('Arcade')}/mo`,
+                description: annualContext === 'true' ? `$${fakeAPI.getPriceAnnual('PL003')}/yr` : `$${fakeAPI.getPriceMonthly('PL003')}/mo`,
                 subscript: SUBSCRPT_2_MTH_FREE
             }]
     }
@@ -75,21 +75,25 @@ export default function FormBodyPlan({ planType }: { planType: string }) {
         if (form.getAttribute(DATA_ANNUAL_LIT) === 'false') {
             form.setAttribute(DATA_ANNUAL_LIT, 'true');
             for (let i = 0; i < radioButtonContainerParams.cards.length; i++) {
-                labels[i].textContent = `$${fakeAPI.getPriceAnnual(radioButtonContainerParams.cards[i].id)}/yr`;
+                labels[i].textContent = `$${fakeAPI.getPriceAnnual(radioButtonContainerParams.cards[i].value)}/yr`;
             }
         } else {
             form.setAttribute(DATA_ANNUAL_LIT, 'false');
             for (let i = 0; i < radioButtonContainerParams.cards.length; i++) {
-                labels[i].textContent = `$${fakeAPI.getPriceMonthly(radioButtonContainerParams.cards[i].id)}/mo`;
+                labels[i].textContent = `$${fakeAPI.getPriceMonthly(radioButtonContainerParams.cards[i].value)}/mo`;
             }
         }
     }
 
     return (
-        <div className="Card FormBody">
+        <div className="Card FormBody" tabIndex={0}>
             <h1>Select your plan</h1>
             <p>You have the option of monthly or yearly billing.</p>
-            <div id="PlanFormInputs" className="PlanFormInputs" data-is-annual="false">
+            <div
+                id="PlanFormInputs"
+                className="PlanFormInputs"
+                data-is-annual={annualContext ? "true" : "false"}
+            >
                 <RadioCardContainer params={radioButtonContainerParams} />
                 <Toggle params={toggleParams} />
             </div>

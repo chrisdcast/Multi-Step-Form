@@ -13,20 +13,50 @@
             margin: 0px;
         }
 
-        & a, p {
+        & a,
+        p {
             text-decoration: underline;
             color: var(--coolGray);
+
+            cursor: pointer;
         }
     }
 
     & .ValueContainer {
+        min-width: 100px;
 
         & p {
             margin: 0px;
 
+            text-align: right;
             font-size: 14px;
             font-weight: 700;
             color: var(--marineBlue);
         }
+    }
+}
+
+.ReviewListSubItem {
+    display: flex;
+    flex-direction: row;
+
+    margin-bottom: 10px;
+
+    & .SubItemLabel {
+        flex-grow: 1;
+
+        margin: 0px;
+
+        font-size: 12px;
+
+        color: var(--coolGray);
+    }
+
+    & .SubItemValue {
+        margin: 0px;
+
+        font-size: 14px;
+
+        color: var(--marineBlue);
     }
 }

@@ -27,33 +27,35 @@ export const ActiveAddOns: AddOn[] = [
 ]
 
 const getAddOn = (id: string) => {
-    const ao = ActiveAddOns.filter((ao) => ao.id !== id);
+    const ao = ActiveAddOns.filter((ao) => ao.id === id);
     return ao[0];
 }
 
-const getPriceMonthly = (id: string) => {
+const getAddOns = (idArray: string[]) => {
+    return ActiveAddOns.filter((ao) => idArray.includes(ao.id))
+}
+
+const getPriceMonthly = (id: string): number => {
     const ao = getAddOn(id);
     if (!ao) {
         console.log('fakeAPI:getPriceMonthly:AddOn not found');
-        return;
+        return 0;
     }
     return ao.pricePerMo;
 }
 
-const getPriceAnnual = (id: string) => {
+const getPriceAnnual = (id: string): number => {
     const ao = getAddOn(id);
     if (!ao) {
         console.log('fakeAPI:getPriceAnnual:AddOn not found');
-        return;
+        return 0;
     }
     return ao.pricePerMo * 10;
 }
 
 export const FakeAddOnAPI = {
     getAddOn,
+    getAddOns,
     getPriceMonthly,
     getPriceAnnual
-    // getAddOn(string): AddOn;
-    // getPriceMonthly(id: string): number;
-    // getPriceAnnual(id: string): number;
 }
