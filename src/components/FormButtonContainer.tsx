@@ -10,7 +10,7 @@ export default function FormButtonContainer({ handlePrev }: { handlePrev(): void
         id: 'Prev',
         type: 'button',
         text: 'Go Back',
-        classNames: ['PrevStep'],
+        classNames: ['SignUpFormButton', 'PrevStep'],
         display: step !== 1 ? true : false,
         handleClick: handlePrev
     };
@@ -18,7 +18,7 @@ export default function FormButtonContainer({ handlePrev }: { handlePrev(): void
         id: 'Next',
         type: 'submit',
         text: step === 4 ? 'Confirm' : 'Next Step',
-        classNames: ['NextStep']
+        classNames: step === 4 ? ['SignUpFormButton', 'Confirm'] : ['SignUpFormButton', 'NextStep']
     };
 
     return (

@@ -28,7 +28,7 @@ export function Toggle({ params }: { params: IToggleParams }) {
     const { register } = useFormContext();
 
     const handleToggle = () => {
-        console.log('handleToggle hit');
+        //console.log('handleToggle hit');
         const toggleFrame = document.getElementById(`${name} Toggle`);
         if (!toggleFrame) {
             console.log('Toggle:handleToggle:toggleFrame not found');
@@ -43,7 +43,7 @@ export function Toggle({ params }: { params: IToggleParams }) {
     }
 
     useEffect(() => {
-        console.log('useEffect for Toggle');
+        //console.log('useEffect for Toggle');
         const toggleFrame = document.getElementById(`${name} Toggle`);
         if (!toggleFrame) {
             console.log('Toggle:useEffect:toggleFrame not found');

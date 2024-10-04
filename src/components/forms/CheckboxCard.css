@@ -65,8 +65,13 @@
                 margin-top: 0px;
                 margin-bottom: 2px;
 
+                text-align: left;
                 font-size: 1em;
                 color: var(--purplishBlue);
+            }
+
+            & p {
+                text-align: left;
             }
 
             & .Description {

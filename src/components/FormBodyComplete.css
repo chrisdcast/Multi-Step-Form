@@ -1,0 +1,31 @@
+.FormBody {
+    text-align: center;
+}
+
+.FormBodyComplete {
+    flex-grow: 1;
+    justify-content: center;
+    max-height: 400px;
+    padding: 0px 25px;
+
+    & h1, p {
+        max-width: 450px;
+        text-align: center;
+    }
+}
+
+.ImgContainerCheck {
+    margin: 0px auto 15px auto;
+    max-width: 65px;
+
+    & img {
+        /* content: url('../assets/icon-checkmark.svg'); */
+        width: 100%;
+    }
+}
+
+@media (min-width: 575px) {
+    .FormBodyComplete {
+        max-height: 100%;
+    }
+}

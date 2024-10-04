@@ -31,18 +31,30 @@ export function ReviewListItem({ params }: { params: IReviewListItemParams }) {
     if (linked) {
         return (
             <>
-                {label && <li className={classNames ? `ReviewListItem ${classNames.join('')}` : "ReviewListItem"}>
-                    <div className="LabelContainer">
-                        <h3>{label}</h3>
-                        <a href={linked.url} className="Subscript" onMouseDown={linked.handleClick}>{subscript}</a>
-                    </div>
-                    <div className="ValueContainer">
-                        <p className="value">{value}</p>
-                    </div>
-                </li>}
+                {label &&
+                    <li key={`Review List Title ${label}`}
+                        className={classNames ? `ReviewListItem ${classNames.join('')}` : "ReviewListItem"}>
+                        <div className="LabelContainer">
+                            <h3>{label}</h3>
+                            <a
+                                href={linked.url}
+                                className="Subscript"
+                                onMouseDown={linked.handleClick}
+                                onKeyDown={(e) => {
+                                    if (e.key === "Enter" || e.key === " ") {
+                                        if (linked.handleClick) linked.handleClick();
+                                    }
+                                }}
+                                tabIndex={0}>{subscript}</a>
+                        </div>
+                        <div className="ValueContainer">
+                            <p className="value">{value}</p>
+                        </div>
+                    </li>
+                }
                 {subItems?.map((item) => {
                     return (
-                        <li>
+                        <li key={`List Item ${item.label}`}>
                             <div className={classNames ? `ReviewListSubItem ${classNames.join('')}` : "ReviewListSubItem"}>
                                 <p className="SubItemLabel">{item.label}</p>
                                 <p className="SubItemValue">{item.value}</p>
@@ -55,27 +67,27 @@ export function ReviewListItem({ params }: { params: IReviewListItemParams }) {
     } else {
         return (
             <>
-                {label && <li className={classNames ? `ReviewListItem ${classNames.join('')}` : "ReviewListItem"}>
-                    <div className="LabelContainer">
-                        <h3>{label}</h3>
-                        <p className="Subscript">{subscript}</p>
-                    </div>
-                    <div className="ValueContainer">
-                        <p className="value">{value}</p>
-                    </div>
-                </li>}
-                {
-                    subItems?.map((item) => {
-                        return (
-                            <li>
-                                <div className={classNames ? `ReviewListSubItem ${classNames.join('')}` : "ReviewListSubItem"}>
-                                    <p className="SubItemLabel">{item.label}</p>
-                                    <p className="SubItemValue">{item.value}</p>
-                                </div>
-                            </li>
-                        )
-                    })
+                {label &&
+                    <li className={classNames ? `ReviewListItem ${classNames.join('')}` : "ReviewListItem"}>
+                        <div className="LabelContainer">
+                            <h3>{label}</h3>
+                            <p className="Subscript">{subscript}</p>
+                        </div>
+                        <div className="ValueContainer">
+                            <p className="value">{value}</p>
+                        </div>
+                    </li>
                 }
+                {subItems?.map((item) => {
+                    return (
+                        <li>
+                            <div className={classNames ? `ReviewListSubItem ${classNames.join('')}` : "ReviewListSubItem"}>
+                                <p className="SubItemLabel">{item.label}</p>
+                                <p className="SubItemValue">{item.value}</p>
+                            </div>
+                        </li>
+                    )
+                })}
             </>
         )
     }

@@ -7,6 +7,7 @@ import FormBodyPersonal from './FormBodyPersonal';
 import FormBodyPlan from './FormBodyPlan';
 import FormBodyAddOns from "./FormBodyAddOns";
 import { FormBodyReview } from "./FormBodyReview";
+import { FormBodyComplete } from "./FormBodyComplete";
 import FormButtonContainer from "./FormButtonContainer";
 import "./Card.css";
 import "./FormCard.css";
@@ -37,6 +38,9 @@ export function FormCard() {
     const methods = useForm<IRegisterFormInfo>({ defaultValues: { plan: 'PL001', addOns: [''] } });
     // Intializing step counter for rendering different forms.
     const [stepState, setStepState] = useState<number>(1);
+    // Flag for refocusing after a rerender. Refocusing should
+    // only occur when the Next Step or Prev Step buttons are clicked.
+    const [refocusFlag, setRefocusFlag] = useState<boolean>(false);
     // Form data object
     const [formInfoState, setFormInfo] = useState<IRegisterFormInfo>({
         name: '',
@@ -52,16 +56,13 @@ export function FormCard() {
         e?.preventDefault();
         setFormInfo({ ...formInfoState, ...data });
         setStepState(stepState + 1);
-        // const form = document.getElementById('FormContainer');
-        // console.log(form);
-        // if (form) {
-        //     form.focus();
-        // }
+        setRefocusFlag(true);
     }
 
     // Handler for Go Back button
     const handlePrev = () => {
         if (stepState > 1) setStepState(stepState - 1);
+        setRefocusFlag(true);
     }
 
     // Handler for plan change link on review screen.
@@ -77,12 +78,17 @@ export function FormCard() {
             console.log('FormCard:useEffect:form not found');
             return;
         }
-        const nextInput = form.getElementsByTagName('input');
-        if (!nextInput) {
-            console.log('FormCard:useEffect:nextInput not found')
-            return;
+        // Only refocus when a navigation button has been selected. This
+        // prevents an awkward refocus when typing info into an input that
+        // has an error message.
+        if (refocusFlag) {
+            const nextInput = form.getElementsByTagName('input');
+            if (nextInput[0]) nextInput[0].focus();
+            if (stepState === 4) {
+                const nextAnchor = form.getElementsByTagName('a');
+                if (nextAnchor[0]) nextAnchor[0].focus();
+            }
         }
-        nextInput[0].focus();
     })
 
     return (
@@ -98,7 +104,7 @@ export function FormCard() {
                         >
                             {
                                 (() => {
-                                    console.log('switch statement started', stepState);
+                                    //console.log('switch statement started', stepState);
                                     switch (stepState) {
                                         case 1:
                                             return <FormBodyPersonal />
@@ -116,13 +122,15 @@ export function FormCard() {
                                                 addOns={formInfoState.addOns}
                                                 onPlanChange={handleReviewPlanChange}
                                             />
+                                        case 5:
+                                            return <FormBodyComplete />
                                         default:
                                             console.log('This was hit somehow');
                                     }
                                 }
                                 )()
                             }
-                            <FormButtonContainer handlePrev={handlePrev} />
+                            {stepState <= 4 && <FormButtonContainer handlePrev={handlePrev} />}
                         </form>
                     </FormProvider>
                 </AnnualContext.Provider>

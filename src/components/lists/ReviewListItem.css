@@ -5,16 +5,23 @@
 
     min-height: 50px;
 
+    & li {
+        list-style-type: none;
+    }
+
     & .LabelContainer {
         display: flex;
         flex-direction: column;
 
         & h3 {
             margin: 0px;
+            text-align: left;
         }
 
         & a,
         p {
+            font-size: 14px;
+            text-align: left;
             text-decoration: underline;
             color: var(--coolGray);
 
@@ -47,7 +54,7 @@
 
         margin: 0px;
 
-        font-size: 12px;
+        font-size: 14px;
 
         color: var(--coolGray);
     }

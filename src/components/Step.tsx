@@ -1,19 +1,16 @@
 import './FormCard';
 import './Step.css';
-import { useContext } from 'react';
-import { StepContext } from './FormCard';
 
 export interface IStepParams {
     label: string;
     text: string;
 }
-export default function Step({ stepNum, params }: { stepNum: number, params: IStepParams }) {
-    const step = useContext(StepContext);
+export default function Step({ stepNum, isCurrentStep, params }: { stepNum: number, isCurrentStep?: boolean, params: IStepParams }) {
     const { label, text } = params;
-
+    
     return (
         <div className="Step">
-            <div className="StepDot" data-current-step={stepNum === step}>{stepNum}</div>
+            <div className="StepDot" data-current-step={isCurrentStep}>{stepNum}</div>
             <div className="StepLabel">
                 <h2>{label.toUpperCase()}</h2>
                 <p>{text.toUpperCase()}</p>

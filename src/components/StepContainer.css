@@ -10,7 +10,7 @@
     min-height: 100px;
 
     /* APPEARANCE STYLES */
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 
 
@@ -29,6 +29,7 @@
         /* APPEARANCE STYLES */
         background-image: url('/src/assets/bg-sidebar-desktop.svg');
         background-repeat: none;
+        background-size: cover;
         border-radius: 15px;
     }
 }

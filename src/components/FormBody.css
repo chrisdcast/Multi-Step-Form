@@ -1,4 +1,6 @@
 .FormBody {
+    position:relative;
+
     /* SIZING & SPACING STYLES */
     box-sizing: border-box;
     padding: 35px 25px 20px 25px;
@@ -6,10 +8,34 @@
     max-width: none;
 }
 
+.FormBody h1, p {
+    text-align: left;
+}
+
+.FormBody::before {
+    content: "";
+    mix-blend-mode: multiply;
+    box-shadow: 0 0 10px 0 #d4d4d4;
+    border-radius: 10px;
+    position: absolute;
+    z-index: 0;
+
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+  }
+
 @media (min-width: 575px) {
     .FormBody{
         margin: 0px;
         padding: 35px 0px 20px 0px;
+    }
+
+    .FormBody::before {
+        visibility: hidden;
     }
 }
 

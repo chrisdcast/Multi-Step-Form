@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ReviewListItem, IReviewListItemParams, IListSubItem } from "./lists/ReviewListItem";
 import { AnnualContext } from "./FormCard";
 import { FakePlanAPI } from "../interfaces/PlanInterfaces";
@@ -12,13 +12,13 @@ export function FormBodyReview({ plan, addOns, onPlanChange }: { plan: string, a
     // calculateTotal: called by totalListItem to get the combined total of
     // plan and all add ons.
     /////////////////////////////////////////////////////////////////////////////
-    const calculateTotal = ():number => {
+    const calculateTotal = (): number => {
         let runningTotal = 0;
         // Adding base plan price.
         annual ? runningTotal += FakePlanAPI.getPriceAnnual(plan) : runningTotal += FakePlanAPI.getPriceMonthly(plan);
-        // Adding individual add on prices.
-        for (let ao in addOns){
-            annual ? runningTotal+= FakeAddOnAPI.getPriceAnnual(addOns[ao]) : runningTotal+= FakeAddOnAPI.getPriceMonthly(addOns[ao]);
+        // Adding individual add-on prices.
+        for (let ao in addOns) {
+            annual ? runningTotal += FakeAddOnAPI.getPriceAnnual(addOns[ao]) : runningTotal += FakeAddOnAPI.getPriceMonthly(addOns[ao]);
         }
         return runningTotal;
     }
@@ -43,7 +43,7 @@ export function FormBodyReview({ plan, addOns, onPlanChange }: { plan: string, a
             handleClick: () => { onPlanChange() }
         }
     };
-    
+
     const totalListItem: IReviewListItemParams = {
         label: annual ? 'Total (per year)' : 'Total (per month)',
         value: annual ? `+$${calculateTotal()}/yr` : `+$${calculateTotal()}/mo`,
@@ -58,12 +58,14 @@ export function FormBodyReview({ plan, addOns, onPlanChange }: { plan: string, a
                 <div className="ReviewListPlanSection">
                     <ReviewListItem params={planListItem} />
                 </div>
-                <div className="ReviewListAddOnSection">
-                    <ReviewListItem params={addOnListItem} />
-                </div>
+                { addOnList[0] &&
+                    <div className="ReviewListAddOnSection">
+                        <ReviewListItem params={addOnListItem} />
+                    </div>
+                }
             </div>
             <div className="ReviewListTotalSection">
-                <ReviewListItem params={totalListItem}/>
+                <ReviewListItem params={totalListItem} />
             </div>
         </div>
     )
