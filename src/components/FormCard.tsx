@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect } from "react";
-import { useForm, FormProvider, SubmitHandler, set } from "react-hook-form";
+import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
 import { IRegisterFormInfo } from "../interfaces/FormInterfaces";
 import { IStepParams } from "./Step";
 import StepContainer from "./StepContainer";

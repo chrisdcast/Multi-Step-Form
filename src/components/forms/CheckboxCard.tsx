@@ -28,7 +28,6 @@ export function CheckboxCard({ params }: { params: ICheckboxCard }) {
         classNames,
         checked,
         registerParams,
-        imgUrl,
         description,
         subscript } = params;
     const { register } = useFormContext();
