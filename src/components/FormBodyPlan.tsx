@@ -4,6 +4,9 @@ import { useContext } from 'react';
 import { AnnualContext } from "./FormCard"
 import { FakePlanAPI } from "../interfaces/PlanInterfaces";
 import './FormBodyPlan.css';
+import arcadeImg from '../assets/icon-arcade.svg';
+import advancedImg from '../assets/icon-advanced.svg';
+import proImg from '../assets/icon-pro.svg';
 
 const DATA_ANNUAL_LIT = 'data-is-annual';
 const SUBSCRPT_2_MTH_FREE = '2 months free';
@@ -22,7 +25,7 @@ export default function FormBodyPlan({ planType }: { planType: string }) {
                 registerParams: {
                     required: true,
                 },
-                imgUrl: '/src/assets/icon-arcade.svg',
+                imgUrl: arcadeImg,
                 description: annualContext === 'true' ? `$${fakeAPI.getPriceAnnual('PL001')}/yr` : `$${fakeAPI.getPriceMonthly('PL001')}/mo`,
                 subscript: SUBSCRPT_2_MTH_FREE
             },
@@ -34,7 +37,7 @@ export default function FormBodyPlan({ planType }: { planType: string }) {
                 registerParams: {
                     required: true,
                 },
-                imgUrl: '/src/assets/icon-advanced.svg',
+                imgUrl: advancedImg,
                 description: annualContext === 'true' ? `$${fakeAPI.getPriceAnnual('PL002')}/yr` : `$${fakeAPI.getPriceMonthly('PL002')}/mo`,
                 subscript: SUBSCRPT_2_MTH_FREE
             },
@@ -46,7 +49,7 @@ export default function FormBodyPlan({ planType }: { planType: string }) {
                 registerParams: {
                     required: true,
                 },
-                imgUrl: '/src/assets/icon-pro.svg',
+                imgUrl: proImg,
                 description: annualContext === 'true' ? `$${fakeAPI.getPriceAnnual('PL003')}/yr` : `$${fakeAPI.getPriceMonthly('PL003')}/mo`,
                 subscript: SUBSCRPT_2_MTH_FREE
             }]
