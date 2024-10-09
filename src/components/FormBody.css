@@ -1,11 +1,9 @@
 .FormBody {
-    position:relative;
-
-    /* SIZING & SPACING STYLES */
     box-sizing: border-box;
-    padding: 35px 25px 20px 25px;
     margin: 0px 17px;
     max-width: none;
+    padding: 35px 25px 20px 25px;
+    position:relative;
 }
 
 .FormBody h1, p {
@@ -13,19 +11,18 @@
 }
 
 .FormBody::before {
-    content: "";
-    mix-blend-mode: multiply;
-    box-shadow: 0 0 10px 0 #d4d4d4;
     border-radius: 10px;
-    position: absolute;
-    z-index: 0;
-
+    bottom: 0px;
+    box-shadow: 0 0 10px 0 #d4d4d4;
+    content: "";
+    height: 100%;
     left: 0px;
+    mix-blend-mode: multiply;
+    position: absolute;
     right: 0px;
     top: 0px;
-    bottom: 0px;
     width: 100%;
-    height: 100%;
+    z-index: 0;
   }
 
 @media (min-width: 575px) {
@@ -41,7 +38,7 @@
 
 @media (min-width: 850px) {
     .FormBody{
-        padding: 35px 0px 0px 0px;
         min-width: 450px;
+        padding: 35px 0px 0px 0px;
     }
 }

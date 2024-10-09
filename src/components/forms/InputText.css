@@ -1,62 +1,41 @@
 .InputText {
-  /* SIZING & SPACING STYLES */
   margin-bottom: 15px;
   max-width: 450px;
 
   & input {
-     /* DISPLAY STYLES */
-    box-sizing: border-box;
-
-    /* SIZING & SPACING STYLES */
-    min-height: 45px;
-    width: 100%;
-    padding: 0px 15px;
-
-    /* APPEARANCE STYLES */
-    color: var(--darkGray);
     background-color: white;
-    border-radius: 7px;
     border: 1px solid var(--lightGray);
-
-    /* FONT STYLES */
+    border-radius: 7px;
+    box-sizing: border-box;
+    color: var(--darkGray);
+    cursor: pointer;
     font-size: 14px;
     font-weight: 700;
-
-    /* MISC STYLES */
-    cursor: pointer;
-
-    /* TRANSITION STYLES */
+    min-height: 45px;
+    padding: 0px 15px;
     transition: border 0.25s, background 0.25s;
+    width: 100%;
   }
 
   & input[aria-invalid="true"] {
-    /* APPEARANCE STYLES */
     border: 1px solid var(--strawberryRed);
   }
 }
 
 .LabelContainer {
-  /* DISPLAY STYLES */
+  color: var(--marineBlue);
   display: flex;
-  justify-content: space-between;
-
-  /* SIZING & SPACING STYLES */
-  width: 100%;
-  margin-bottom: 3px;
-
-  /* FONT STYLES */
   font-size: 12px;
   font-weight: 400;
-  color: var(--marineBlue);
+  justify-content: space-between;
+  margin-bottom: 3px;
+  width: 100%;
 
   & p {
-    /* SIZING & SPACING STYLES */
-    margin: 0px;
-    padding: 0px;
-
-    /* FONT STYLES */
+    color: var(--strawberryRed);
     font-size: 12px;
     font-weight: 700;
-    color: var(--strawberryRed);
+    margin: 0px;
+    padding: 0px;
   }
 }

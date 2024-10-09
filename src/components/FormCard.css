@@ -1,47 +1,36 @@
 .FormCard {
-    /* DISPLAY STYLES */
-    display: flex;
-    flex-direction: column;
-
-    /* SIZING & SPACING STYLES */
-    margin: 0px;
-    min-height: 200px;
-    height: 100vh;
-    padding: 0px;
-    width: 100%;
-
-    /* APPEARANCE STYLES */
     background-color: transparent;
     background-image: url('../assets/bg-sidebar-mobile.svg');
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 0px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0px;
+    min-height: 200px;
+    padding: 0px;
+    width: 100%;
 }
 
 .FormContainer {
-    /* DISPLAY STYLES */
+    align-items: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
     flex-grow: 1;
+    justify-content: space-between;
 }
 
 @media (min-width: 575px) {
     .FormCard {
-        /* DISPLAY STYLES */
-        flex-direction: row;
-
-        /* SIZING & SPACING STYLES */
-        min-width: 575px;
-        max-width: 940px;
-        max-height: 600px;
-        padding: 15px;
-
-        /* APPEARANCE STYLES */
         background:none;
         background-color: white;
         border-radius: 20px;
+        flex-direction: row;
+        max-height: 600px;
+        max-width: 940px;
+        min-width: 575px;
+        padding: 15px;
 
         & h1{
             font-size: 30px;
@@ -49,10 +38,7 @@
     }
 
     .FormContainer {
-        /* DISPLAY STYLES */
         flex-grow: 1;
-
-        /* SIZING & SPACING STYLES */
         padding: 15px;
     }
 }

@@ -1,6 +1,6 @@
 .Footer {
-  width: 100%;
   background-color: rgb(26, 26, 26);
+  width: 100%;
 
   & p {
     color: white;
@@ -10,6 +10,7 @@
 
   & a {
     color: white;
+    text-decoration: underline;
   }
 }
 

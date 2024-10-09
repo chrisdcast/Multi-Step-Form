@@ -1,35 +1,24 @@
 .StepContainer {
-    /* DISPLAY STYLES */
+    align-items: center;
+    box-sizing: border-box;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-
-    /* SIZING & SPACING STYLES */
     min-height: 100px;
-
-    /* APPEARANCE STYLES */
-    /* border: 1px solid green; */
 }
 
 
 @media (min-width: 575px){
     .StepContainer {
-        /* DISPLAY STYLES */
-        flex-direction: column;
-        justify-content: start;
         align-items: start;
-
-        /* SIZING & SPACING STYLES */
-        min-width: 275px;
-        padding-top: 30px;
-        padding-left: 30px;
-
-        /* APPEARANCE STYLES */
         background-image: url('/src/assets/bg-sidebar-desktop.svg');
         background-repeat: none;
         background-size: cover;
         border-radius: 15px;
+        flex-direction: column;
+        justify-content: start;
+        min-width: 275px;
+        padding-left: 30px;
+        padding-top: 30px;
     }
 }

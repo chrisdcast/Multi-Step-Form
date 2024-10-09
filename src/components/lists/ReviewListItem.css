@@ -1,8 +1,7 @@
 .ReviewListItem {
+    align-items: center;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-
     min-height: 50px;
 
     & li {
@@ -20,12 +19,11 @@
 
         & a,
         p {
+            color: var(--coolGray);
+            cursor: pointer;
             font-size: 14px;
             text-align: left;
             text-decoration: underline;
-            color: var(--coolGray);
-
-            cursor: pointer;
         }
     }
 
@@ -33,12 +31,11 @@
         min-width: 100px;
 
         & p {
-            margin: 0px;
-
-            text-align: right;
+            color: var(--marineBlue);
             font-size: 14px;
             font-weight: 700;
-            color: var(--marineBlue);
+            margin: 0px;
+            text-align: right;
         }
     }
 }
@@ -46,24 +43,18 @@
 .ReviewListSubItem {
     display: flex;
     flex-direction: row;
-
     margin-bottom: 10px;
 
     & .SubItemLabel {
-        flex-grow: 1;
-
-        margin: 0px;
-
-        font-size: 14px;
-
         color: var(--coolGray);
+        flex-grow: 1;
+        font-size: 14px;
+        margin: 0px;
     }
 
     & .SubItemValue {
-        margin: 0px;
-
-        font-size: 14px;
-
         color: var(--marineBlue);
+        font-size: 14px;
+        margin: 0px;
     }
 }

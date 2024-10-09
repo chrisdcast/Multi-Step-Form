@@ -1,45 +1,30 @@
 .Card {
-  /* DISPLAY STYLES */
+  background-color: white;
+  border-radius: 10px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: start;
-
-  /* SIZING & SPACING STYLES */
-  box-sizing: border-box;
   margin: 0px 20px;
-  padding: 20px;
   min-width: 20px;
-  /* min-height: 400px; */
-
-  /* APPEARANCE STYLES */
-  background-color: white;
-  border-radius: 10px;
-
-  /* FONT STYLES */
+  padding: 20px;
   text-align: left;
 
   & h1 {
-    /* SIZING & SPACING STYLES */
-    margin: 0px 0px 10px 0px;
-
-    /* FONT STYLES */
     color: var(--marineBlue);
     font-size: 24px;
+    margin: 0px 0px 10px 0px;
   }
 
   & p {
-    /* SIZING & SPACING STYLES */
-    margin: 0px 0px 15px 0px;
-
-    /* FONT STYLES */
     color: var(--coolGray);
     font-size: 16px;
+    margin: 0px 0px 15px 0px;
   }
 }
 
 @media (min-width: 576px) {
   .Card {
-    /* SIZING & SPACING STYLES */
     max-width: 425px;
   }
 }

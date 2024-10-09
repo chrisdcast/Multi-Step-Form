@@ -55,7 +55,6 @@ export function FormCard() {
 
     // Submit handler for form
     const formSubmit: SubmitHandler<IRegisterFormInfo> = (data, e) => {
-        console.log('formSubmit', skipStepFlag);
         if (skipStepFlag) {
             setSkipStepFlag(false);
             return;
@@ -64,6 +63,7 @@ export function FormCard() {
         setFormInfo({ ...formInfoState, ...data });
         setStepState(stepState + 1);
         setRefocusFlag(true);
+        if (stepState === 4) console.log(formInfoState);
     }
 
     // Handler for Go Back button
@@ -74,13 +74,11 @@ export function FormCard() {
 
     // Handler for plan change link on review screen.
     const handleReviewPlanChange = (skipStep?: boolean) => {
-        console.log('handleReviewPlanChange', skipStep);
         if (skipStep) setSkipStepFlag(true);
         setStepState(2);
     }
 
     useEffect(() => {
-        console.log(formInfoState);
         //Getting the form and first available input for refocusing the tab index.
         const form = document.getElementById('FormContainer');
         if (!form) {

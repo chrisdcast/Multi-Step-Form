@@ -1,73 +1,54 @@
 .Step {
-    /* DISPLAY STYLES */
+    align-items: center;
     display: flex;
     flex-direction: row;
-    align-items: center;
 
     & .StepDot {
-        /* DISPLAY STYLES */
-        display: flex;
-        justify-content: center;
         align-items: center;
-
-        /* SIZING & SPACING STYLES */
-        width: 30px;
-        height: 30px;
-        margin: 0px 7px;
-
-        /* APPEARANCE STYLES */
         border: 1px solid var(--lightBlue);
         border-radius: 20px;
-
-        /* FONT STYLES */
+        display: flex;
         font-size: 16px;
         font-weight: 500;
+        height: 30px;
+        justify-content: center;
+        margin: 0px 7px;
+        width: 30px;
     }
 
     & .StepDot[data-current-step=true] {
-        /* APPEARANCE STYLES */
         background-color: var(--lightBlue);
         color: var(--marineBlue);
     }
 
     & .StepLabel {
-        /* DISPLAY STYLES */
         display: none;
     }
 }
 
 @media (min-width: 575px) {
     .Step {
-        /* SIZING & SPACING STYLES */
         margin-bottom: 25px;
 
         & .StepDot {
-            /* SIZING & SPACING STYLES */
             margin: 0px 15px 0px 0px;
         }
 
         & .StepLabel {
-            /* DISPLAY STYLES */
             display: block;
 
             & h2 {
-                /* SIZING & SPACING STYLES */
-                margin: 0px;
-
-                /* FONT STYLES */
                 font-size: 13px;
                 font-weight: 400;
+                margin: 0px;
             }
 
             & p {
-                /* SIZING & SPACING STYLES */
-                margin: 0px;
-
-                /* FONT STYLES */
+                color: var(--alabaster);
+                font-kerning: none;
                 font-size: 14px;
                 font-weight: 700;
-                font-kerning: none;
-                color: var(--alabaster);
+                margin: 0px;
             }
         }
     }

@@ -1,48 +1,34 @@
 .FormButtonContainer {
-    /* DISPLAY STYLES */
-    display: flex;
-    justify-content: space-between;
-    flex-direction: row-reverse;
-
-    /* SIZING & SPACING STYLES */
+    background-color: white;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    max-width: 450px;
     padding: 15px;
     width: 100%;
-    max-width: 450px;
-
-    /* APPEARANCE STYLES */
-    background-color: white;
 
     & .SignUpFormButton {
-        /* SIZING & SPACING STYLES */
+        border-radius: 5px;
         max-width: 100px;
         min-height: 40px;
 
-        /* APPEARANCE STYLES */
-        border-radius: 5px;
-
         & input {
-            /* APPEARANCE STYLES */
             background: none;
-
-            /* FONT STYLES */
             font-size: 14px;
         }
     }
 
     & .PrevStep {
-        /* APPEARANCE STYLES */
         background: none;
 
         & input {
-            /* FONT STYLES */
             color: gray;
         }
     }
 
     & .NextStep,
     .Confirm {
-        /* APPEARANCE STYLES */
         background: var(--marineBlue);
 
         & input:hover,
@@ -53,7 +39,6 @@
     }
 
     & .Confirm {
-        /* APPEARANCE STYLES */
         background: var(--purplishBlue);
     }
 }
