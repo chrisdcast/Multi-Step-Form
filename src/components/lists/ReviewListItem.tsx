@@ -1,5 +1,4 @@
 import './ReviewListItem.css';
-import { useState } from 'react';
 
 export interface IListSubItem {
     label: string;
