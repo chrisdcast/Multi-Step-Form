@@ -5,7 +5,7 @@ import { FakePlanAPI } from "../interfaces/PlanInterfaces";
 import "./FormBodyReview.css";
 import { FakeAddOnAPI } from "../interfaces/AddOnInterface";
 
-export function FormBodyReview({ plan, addOns, onPlanChange }: { plan: string, addOns: string[], onPlanChange(): void }) {
+export function FormBodyReview({ plan, addOns, onPlanChange }: { plan: string, addOns: string[], onPlanChange(skipStep?: boolean): void }) {
     const annual = useContext(AnnualContext);
     const planType = FakePlanAPI.getPlan(plan);
     /////////////////////////////////////////////////////////////////////////////
@@ -40,7 +40,7 @@ export function FormBodyReview({ plan, addOns, onPlanChange }: { plan: string, a
         value: annual ? `$${FakePlanAPI.getPriceAnnual(planType.id)}/yr` : `$${FakePlanAPI.getPriceMonthly(planType.id)}/mo`,
         subscript: 'Change',
         linked: {
-            handleClick: () => { onPlanChange() }
+            handleClick: onPlanChange
         }
     };
 
@@ -58,7 +58,7 @@ export function FormBodyReview({ plan, addOns, onPlanChange }: { plan: string, a
                 <div className="ReviewListPlanSection">
                     <ReviewListItem params={planListItem} />
                 </div>
-                { addOnList[0] &&
+                {addOnList[0] &&
                     <div className="ReviewListAddOnSection">
                         <ReviewListItem params={addOnListItem} />
                     </div>

@@ -41,6 +41,8 @@ export function FormCard() {
     // Flag for refocusing after a rerender. Refocusing should
     // only occur when the Next Step or Prev Step buttons are clicked.
     const [refocusFlag, setRefocusFlag] = useState<boolean>(false);
+    // Flag to skip updating the step number.
+    const [skipStepFlag, setSkipStepFlag] = useState<boolean>(false);
     // Form data object
     const [formInfoState, setFormInfo] = useState<IRegisterFormInfo>({
         name: '',
@@ -53,6 +55,11 @@ export function FormCard() {
 
     // Submit handler for form
     const formSubmit: SubmitHandler<IRegisterFormInfo> = (data, e) => {
+        console.log('formSubmit', skipStepFlag);
+        if (skipStepFlag) {
+            setSkipStepFlag(false);
+            return;
+        }
         e?.preventDefault();
         setFormInfo({ ...formInfoState, ...data });
         setStepState(stepState + 1);
@@ -66,7 +73,9 @@ export function FormCard() {
     }
 
     // Handler for plan change link on review screen.
-    const handleReviewPlanChange = () => {
+    const handleReviewPlanChange = (skipStep?: boolean) => {
+        console.log('handleReviewPlanChange', skipStep);
+        if (skipStep) setSkipStepFlag(true);
         setStepState(2);
     }
 

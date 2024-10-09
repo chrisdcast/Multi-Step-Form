@@ -1,4 +1,5 @@
 import './ReviewListItem.css';
+import { useState } from 'react';
 
 export interface IListSubItem {
     label: string;
@@ -13,7 +14,7 @@ export interface IReviewListItemParams {
     subscript?: string;
     linked?: {
         url?: string;
-        handleClick?(): void;
+        handleClick?(skipStep?: boolean): void;
     };
     subItems?: IListSubItem[];
 }
@@ -39,11 +40,13 @@ export function ReviewListItem({ params }: { params: IReviewListItemParams }) {
                             <a
                                 href={linked.url}
                                 className="Subscript"
-                                onMouseDown={linked.handleClick}
+                                onMouseDown={() => {
+                                    if (linked.handleClick) linked.handleClick();
+                                }}
                                 onKeyDown={(e) => {
-                                    if (e.key === "Enter" || e.key === " ") {
-                                        if (linked.handleClick) linked.handleClick();
-                                    }
+                                    if (!linked.handleClick) return;
+                                    if (e.key === "Enter") linked.handleClick(true);
+                                    if (e.key === ' ') linked.handleClick();
                                 }}
                                 tabIndex={0}>{subscript}</a>
                         </div>

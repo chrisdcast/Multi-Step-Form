@@ -1,0 +1,22 @@
+.Footer {
+  width: 100%;
+  background-color: rgb(26, 26, 26);
+
+  & p {
+    color: white;
+    font-size: 11px;
+    text-align: center;
+  }
+
+  & a {
+    color: white;
+  }
+}
+
+@media (min-width: 576px) {
+  .Footer {
+    & p {
+      font-size: 14px;
+    }
+  }
+}
